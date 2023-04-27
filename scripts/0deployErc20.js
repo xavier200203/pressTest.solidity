@@ -19,10 +19,6 @@ const main = async () => {
     erc20Contract = await deployERC20("B","SB",deployer);
     await writeConfig("0","0","ERC20_B_ADDRESS",erc20Contract.address);
 
-
-    // console.log("erc721 address : ",erc721Contract.address);
-    // console.log("nftName", await erc721Contract.name(), "\nsymbol", await erc721Contract.symbol(), "\nbaseURL", await erc721Contract.baseURI());
-   
 }
 
 

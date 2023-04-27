@@ -1,7 +1,7 @@
 
 const { ethers, getChainId} = require('hardhat')
 const { utils} = require('ethers')
-const {readConfig } = require('./utils/helper')
+const {readConfig,sleep } = require('./utils/helper')
 var Web3 = require('web3');
 
 const main = async () => {
@@ -42,22 +42,32 @@ const main = async () => {
     let nonce = await web3.eth.getTransactionCount(deployer.address, 'pending')
     console.log("xxl nonce ",nonce);
 
-    let loopNum = 10;
+    // let loopNum = 10;
     let times = 50;
+    let i = 0;
     var start = new Date().getTime()
-    for(i = 0 ;i < loopNum ;i ++ ){
+    
     //1s 50次 ==>
     // .都能成功
     // .每一笔上链时间
     while(true){
+        
         tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
             nonce:(nonce  + i)
         });
+
+        console.log("noncue is :",nonce  + i);
+        // tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1);
+        i ++ ;
         await sleep(1000/times)
+
+        return ;
         //
     }
-    var end = new Date().getTime()
-    console.log('cost is', `${end - start}ms`)
+
+
+    // var end = new Date().getTime()
+    // console.log('cost is', `${end - start}ms`)
 
 }
 

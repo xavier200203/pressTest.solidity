@@ -14,6 +14,7 @@ module.exports = {
       url: `http://45.76.163.231:20656`,
       accounts: [
         "0xc03b0a988e2e18794f2f0e881d7ffcd340d583f63c1be078426ae09ddbdec9f5",
+        "0x54e6e01600b66af71b9827429ff32599383d7694684bc09e26c3b13d95980650",
       ],
     },
 

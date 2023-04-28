@@ -43,7 +43,7 @@ const main = async () => {
     console.log("xxl nonce ",nonce);
 
     // let loopNum = 10;
-    let times = 1;
+    let times = 50;
     let i = 0;
     var start = new Date().getTime()
     
@@ -57,15 +57,20 @@ const main = async () => {
         //     nonce:(nonce  + i)
         // });
         console.log("noncue is :",nonce  + i);
-        let tx = await tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
-            gasLimit:4000000,gasPrice:1000000000 , nonce:(nonce  + i)
-        })
-        console.log(tx);
+        // let tx = await tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
+        //     gasLimit:4000000,gasPrice:1000000000 , nonce:(nonce  + i)
+        // })
+        // console.log(tx);
 
-        let rep = await tx.wait();
-        console.log(rep.gasUsed);
+        // let rep = await tx.wait();
+        // console.log(rep.gasUsed);
 
         // tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1)
+
+
+        tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
+            gasLimit:4000000,gasPrice:1000000000 , nonce:(nonce  + i)
+        })
         i ++ ;
         await sleep(1000/times)
 

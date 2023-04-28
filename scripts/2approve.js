@@ -28,7 +28,7 @@ const main = async () => {
     )
     console.log("erc20 A Contract :",testTokenAContract.address);
 
-    await testTokenAContract.connect(deployer).approve(tokenSwapAddress,10000);
+    await testTokenAContract.connect(deployer).approve(tokenSwapAddress,1000000000000);
 
 
     let erc20BAddress = await readConfig("0","ERC20_B_ADDRESS");
@@ -40,7 +40,7 @@ const main = async () => {
     )
 
     console.log("erc20 B Contract :",testTokenBContract.address);
-    await testTokenBContract.connect(bAccount).approve(tokenSwapAddress,10000);
+    await testTokenBContract.connect(bAccount).approve(tokenSwapAddress,1000000000000);
 
 }
 

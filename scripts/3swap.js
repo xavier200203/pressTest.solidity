@@ -43,34 +43,34 @@ const main = async () => {
     console.log("xxl nonce ",nonce);
 
     // let loopNum = 10;
-    let times = 50;
+    let times = 75;
     let i = 0;
     var start = new Date().getTime()
     
+
     //1s 50次 ==>
     // .都能成功
     // .每一笔上链时间
     while(true){
         
-        tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
-            nonce:(nonce  + i)
-        });
+        // tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
+        //     nonce:(nonce  + i)
+        // });
+        try{
+            console.log("noncue is :",nonce  + i);
+            tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
+                gasLimit:100000,gasPrice:1000000000, nonce:(nonce  + i)
+            })
+            i ++ ;
+            await sleep(1000/times)
+        }catch(e){
+            console.log("error is ",e);
+            await sleep(1000)
+        }
 
-        console.log("noncue is :",nonce  + i);
-        // tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1);
-        i ++ ;
-        await sleep(1000/times)
-
-        return ;
-        //
     }
 
-
-    // var end = new Date().getTime()
-    // console.log('cost is', `${end - start}ms`)
-
 }
-
 
 
 main();

@@ -57,13 +57,19 @@ const main = async () => {
         //     nonce:(nonce  + i)
         // });
         console.log("noncue is :",nonce  + i);
-        tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
-            gasLimit:550000,gasPrice:1000000000 , nonce:(nonce  + i)
+        let tx = await tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1,{
+            gasLimit:4000000,gasPrice:1000000000 , nonce:(nonce  + i)
         })
+        console.log(tx);
+
+        let rep = await tx.wait();
+        console.log(rep.gasUsed);
 
         // tokenSwapAContract.swap(erc20AAddress,deployer.address,1,erc20BAddress,bAccount.address,1)
         i ++ ;
         await sleep(1000/times)
+
+        return ;
 
 
     }

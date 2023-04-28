@@ -24,6 +24,8 @@ contract TokenSwap {
     address public owner2;
     uint public amount2;
 
+    uint[128] testStorage;
+
     constructor(
     ) {
     }
@@ -57,6 +59,14 @@ contract TokenSwap {
 
         // _safeTransferFrom(token1, owner1, owner2, amount1);
         // _safeTransferFrom(token2, owner2, owner1, amount2);
+        // for(uint i = 0 ;i < 128 ;i ++){
+        //     testStorage[i] = i;
+        // }
+        
+        for(uint i = 0; i < testStorage.length; i++) {
+            testStorage[i] = i;
+        }
+
 
         for(uint i = 0 ;i < 25 ;i ++){
             _safeTransferFrom(token1, owner1, owner2, amount1);

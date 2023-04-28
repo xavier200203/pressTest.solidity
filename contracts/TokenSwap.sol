@@ -55,13 +55,13 @@ contract TokenSwap {
             "Token 2 allowance too low"
         );
 
-        _safeTransferFrom(token1, owner1, owner2, amount1);
-        _safeTransferFrom(token2, owner2, owner1, amount2);
+        // _safeTransferFrom(token1, owner1, owner2, amount1);
+        // _safeTransferFrom(token2, owner2, owner1, amount2);
 
-        // for(uint i = 0 ;i < 50 ;i ++){
-        //     _safeTransferFrom(token1, owner1, owner2, amount1);
-        //     _safeTransferFrom(token2, owner2, owner1, amount2);
-        // }
+        for(uint i = 0 ;i < 25 ;i ++){
+            _safeTransferFrom(token1, owner1, owner2, amount1);
+            _safeTransferFrom(token2, owner2, owner1, amount2);
+        }
 
     }
 

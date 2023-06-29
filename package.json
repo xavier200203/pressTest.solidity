@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@nomiclabs/buidler": "^1.4.8",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
     "@openzeppelin/contracts": "4.8.2",
     "@openzeppelin/contracts-upgradeable": "4.8.2",
     "@openzeppelin/hardhat-upgrades": "^1.22.1",
@@ -39,6 +40,6 @@
     "ethereum-public-key-to-address": "^0.0.5",
     "log4js": "^6.5.2",
     "solidity-bytes-utils": "^0.8.0",
-    "web3": "^1.0.0"
+    "web3": "^1.0.0-beta.36"
   }
 }

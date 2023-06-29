@@ -8,6 +8,7 @@
     "test": "hardhat test",
     "scripts": "npx hardhat run ",
     "pm2": "pm2 start 'yarn scripts scripts/3swap.js --network testnet' ",
+    "pm2Tx": "pm2 start 'yarn scripts scripts/5tx.js --network testnet' ",
     "pm2Count": "pm2 start 'yarn scripts scripts/4monitorChain.js --network testnet' "
   },
   "devDependencies": {
